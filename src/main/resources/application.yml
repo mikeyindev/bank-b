@@ -1,0 +1,51 @@
+server: 
+  port: 8000
+
+spring:
+  profiles.active: profile4
+
+---
+
+spring:
+  profiles: profile1
+ 
+name:
+  option: 1
+
+address:
+  option: full
+  
+---
+
+spring:
+  profiles: profile2
+
+name:
+  option: 1
+
+address:
+  option: partial
+  
+---
+
+spring:
+  profiles: profile3
+
+name:
+  option: 2
+
+address:
+  option: full
+
+---
+
+spring:
+  profiles: profile4
+  
+name:
+  option: 2
+
+address:
+  option: partial
+  
+  
