@@ -20,6 +20,9 @@ public class EmployeeController {
 	@Value("${address.option}")
 	private String addressOption;
 	
+	private static final String FULL = "full";
+	private static final String PARTIAL = "partial";
+	
 	@PostMapping("/receive")
 	public ResponseEntity<Object> process(@RequestBody Employee employee) {	
 		Address address = employee.getAddress();
@@ -33,9 +36,9 @@ public class EmployeeController {
 		response.setEmployeeName(employeeName);
 		
 		String concatAddress = "";
-		if (addressOption.equals("full")) {
+		if (addressOption.equals(FULL)) {
 			concatAddress = address.getAddressLine1() + " " + address.getAddressLine2() + " " + address.getCity() + " " + address.getState() + " " + address.getZip();
-		} else if (addressOption.equals("partial")){
+		} else if (addressOption.equals(PARTIAL)){
 			concatAddress = address.getAddressLine1() + " " + address.getCity() + " " + address.getState() + " " + address.getZip();
 		}
 		response.setAddress(concatAddress);
